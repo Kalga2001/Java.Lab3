@@ -1,0 +1,55 @@
+package com.company;
+import java.sql.Array;
+import java.time.Year;
+import java.util.Scanner;
+class Fluel
+{
+    public int mills;
+    public int gallons;
+
+
+    public Fluel(int mills, int gallons)
+    {
+        this.mills=mills;
+        this.gallons=gallons;
+    }
+
+    float Fluel(int mills, int gallons) //mills/gallons
+    {
+        float fluel= (float) mills/gallons;
+        return fluel;
+    }
+
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Введите количество поездок: ");
+        int count_moves=input.nextInt();
+        int mills=0;
+        int gallons=0;
+        Fluel fluel=new Fluel(mills,gallons);
+
+        float [] Array=new float [count_moves];
+       float averrage=0;
+       float sum=0;
+        System.out.println("Создаем новый обьект: ");
+       if(count_moves>0) {
+           for (int i = 0; i < count_moves; i++) {
+               System.out.println("Введите количество милль: ");
+               mills = input.nextInt();
+               System.out.println("Введите количество галлон: ");
+               gallons = input.nextInt();
+               Array[i] = fluel.Fluel(mills, gallons);
+           }
+
+           for (int i = 0; i < count_moves; i++) {
+               sum+=Array[i];
+               averrage = (float) sum / count_moves;
+           }
+           System.out.println("Средняя милли/галлон: " + averrage + " за " + count_moves + " поездок");
+       }
+       
+    }
+}

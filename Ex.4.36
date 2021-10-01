@@ -1,0 +1,34 @@
+package com.company;
+import java.util.Scanner;
+import java.util.InputMismatchException;
+import java.lang.Math;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Введите сторону a: ");
+        double a = input.nextDouble();
+        System.out.println("Введите сторону b: ");
+        double b = input.nextDouble();
+        System.out.println("Введите сторону c: ");
+        double c = input.nextDouble();
+        double side1  = a * a;
+        double side2 = b * b;
+        double side3 = c * c;
+
+       boolean isRightTriangle = false;
+
+        if ( ( side1 + side2 ) == side3 )
+            isRightTriangle = true;
+        else if ( ( side1 + side3 ) == side2 )
+            isRightTriangle = true;
+        else if ( ( side2 + side3 ) == side1 )
+            isRightTriangle = true;
+
+        if ( isRightTriangle )
+            System.out.println( "Стороны прямоугольного треугольника" );
+        else
+            System.out.println( "Стороны не прямоугольного треугольника" );
+    }
+}
+
